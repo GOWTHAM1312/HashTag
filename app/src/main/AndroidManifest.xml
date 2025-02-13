@@ -25,6 +25,18 @@
             android:name=".SpecialMealsActivity"
             android:exported="false" />
         <activity
+            android:name=".BucketBriyaniActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KebabsandBarbequeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CurriesandgraviesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BriyaniActivity"
+            android:exported="false" />
+        <activity
             android:name=".StartersActivity"
             android:exported="false" />
         <activity

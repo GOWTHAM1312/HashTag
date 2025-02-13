@@ -19,6 +19,9 @@
             android:name=".PaymentActivity"
             android:exported="false" />
         <activity
+            android:name=".SoupsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ThankingActivity"
             android:exported="false" />
         <activity

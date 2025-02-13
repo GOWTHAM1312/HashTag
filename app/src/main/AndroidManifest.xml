@@ -13,7 +13,22 @@
         android:theme="@style/Theme.HashTag"
         tools:targetApi="31">
         <activity
+            android:name=".DosaandidiyappamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BreadandparottasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EggitemsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SpecialMealsActivity"
+            android:exported="false" />
+        <activity
             android:name=".StartersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RiceandNoodlesActivity"
             android:exported="false" />
         <activity
             android:name=".AddtocartActivity"

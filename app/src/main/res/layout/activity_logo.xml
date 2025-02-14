@@ -37,6 +37,7 @@
     <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:id="@+id/arrowIcon"
         android:layout_gravity="center"
         android:src="@drawable/logorightarrow">
     </ImageView>
@@ -44,8 +45,9 @@
 
     <ImageView
         android:layout_width="412dp"
-        android:layout_height="283dp"
+        android:layout_height="match_parent"
         android:src="@drawable/startpagedownone"
-        android:layout_marginBottom="0dp">
+        android:layout_marginBottom="0dp"
+        android:layout_gravity="bottom">
     </ImageView>
 </LinearLayout>

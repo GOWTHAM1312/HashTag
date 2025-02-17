@@ -13,6 +13,9 @@
         android:theme="@style/Theme.HashTag"
         tools:targetApi="31">
         <activity
+            android:name=".CategorypageActivity"
+            android:exported="false" />
+        <activity
             android:name=".DosaandidiyappamActivity"
             android:exported="false" />
         <activity
@@ -74,8 +77,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

@@ -8,41 +8,37 @@
     android:orientation="vertical"
     tools:context=".GetstartedActivity">
 
-    <ImageView
-        android:layout_width="412dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="75dp"
-        android:src="@drawable/favfood"></ImageView>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/idViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="All Your Favourites"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold">
-
-    </TextView>
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:text="Your next meal is just a tap away. Explore menus, place orders, and enjoy personalized features designed for convenience."
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp">
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:weightSum="5">
 
-    </TextView>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="2" />
+
+        <LinearLayout
+            android:id="@+id/idLLDots"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="64dp"
         android:id="@+id/getstartedbutton"
         android:backgroundTint="@color/orange"
         android:text="Get Started"

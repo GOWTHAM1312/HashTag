@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GetstartedActivity">
+
+    <ImageView
+        android:layout_width="412dp"
+        android:layout_height="300dp"
+        android:src="@drawable/favfood"
+        android:layout_marginTop="75dp"
+        android:id="@+id/flashcard"
+        >
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Your Favourites"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:id="@+id/flashhead"
+        android:textSize="25sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your next meal is just a tap away. Explore menus, place orders, and enjoy personalized features designed for convenience."
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:id="@+id/flashpar"
+        android:textColor="@color/black"
+        >
+
+    </TextView>
+
+
+</LinearLayout>

@@ -9,9 +9,9 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="412dp"
         android:layout_height="382dp"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
         android:layout_margin="0dp"
         android:id="@+id/topBg"
         android:src="@drawable/greentopone">
@@ -25,7 +25,7 @@
         android:layout_marginLeft="15dp"
         android:id="@+id/emailTV"
         android:textStyle="bold"
-        android:layout_marginTop="-10dp"
+        android:layout_marginTop="-30dp"
         android:layout_below="@id/topBg"
         android:textColor="@color/black"
         android:textSize="18sp">
@@ -36,6 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:id="@+id/emailCard"
         android:layout_below="@id/emailTV"
         app:cardCornerRadius="10dp">
@@ -63,7 +65,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:id="@+id/passCard"

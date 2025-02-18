@@ -34,7 +34,7 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (RelativeLayout) object;
+        return view == (LinearLayout) object;
     }
 
     @NonNull
@@ -46,7 +46,7 @@ public class SliderAdapter extends PagerAdapter {
         ImageView imageView = view.findViewById(R.id.flashcard);
         TextView titleTV = view.findViewById(R.id.flashhead);
         TextView headingTV = view.findViewById(R.id.flashpar);
-        LinearLayout sliderRL = view.findViewById(R.id.main);
+        LinearLayout sliderRL = view.findViewById(R.id.SliderMain);
 
         SliderModel modal = sliderModalArrayList.get(position);
         titleTV.setText(modal.getHead());
@@ -62,6 +62,6 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((RelativeLayout) object);
+        container.removeView((LinearLayout) object);
     }
 }

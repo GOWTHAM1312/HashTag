@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,29 +9,28 @@
     tools:context=".ProfileActivity">
 
     <ImageView
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="218dp"
         android:src="@drawable/profiletoporange"
         android:layout_gravity="end"
-        android:layout_margin="0dp">
+        android:layout_margin="0dp"
+        android:id="@+id/profiletop"
+        >
 
     </ImageView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/profileuser"
-            android:layout_gravity="center"
-            android:layout_margin="10dp">
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-125dp"
+            android:layout_below="@id/profiletop">
 
         </ImageView>
 
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,18 +38,22 @@
         android:text="UserName"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginLeft="30dp">
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="300dp"
+        android:id="@+id/usernameprofile">
 
     </TextView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@id/usernameprofile"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp">
+        android:id="@+id/usernamecard"
+        app:cardCornerRadius="5dp">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,18 +69,24 @@
         android:text="E-Mail I'd"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginLeft="30dp">
+        android:layout_below="@id/usernamecard"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/useremail"
+        >
 
     </TextView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@id/useremail"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp">
+        android:id="@+id/useremailcard"
+        app:cardCornerRadius="5dp">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,18 +102,23 @@
         android:text="Phone Number"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginLeft="30dp">
+        android:layout_below="@+id/useremailcard"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/userphno">
 
     </TextView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@id/userphno"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp">
+        android:id="@+id/userphnocard"
+        app:cardCornerRadius="5dp">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,18 +135,23 @@
         android:text="Address"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginLeft="30dp">
+        android:layout_below="@id/userphnocard"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/useraddress">
 
     </TextView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@id/useraddress"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp">
+
+        app:cardCornerRadius="5dp">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -162,4 +181,4 @@
         android:layout_marginTop="0dp"
         android:layout_marginRight="64dp"></Button>
 
-</LinearLayout>
+</RelativeLayout>

@@ -14,40 +14,19 @@
         tools:targetApi="31">
         <activity
             android:name=".FoodActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".CategorypageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DosaandidiyappamActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BreadandparottasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EggitemsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SpecialMealsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BucketBriyaniActivity"
-            android:exported="false" />
-        <activity
-            android:name=".KebabsandBarbequeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CurriesandgraviesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BriyaniActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StartersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RiceandNoodlesActivity"
-            android:exported="false" />
+            android:exported="false" >
+
+        </activity>
+
         <activity
             android:name=".AddtocartActivity"
             android:exported="false" />
@@ -55,19 +34,11 @@
             android:name=".PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".SoupsActivity"
-            android:exported="false" />
-        <activity
             android:name=".ThankingActivity"
             android:exported="false" />
         <activity
             android:name=".LogoActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".GetstartedActivity"

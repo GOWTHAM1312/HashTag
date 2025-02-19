@@ -1,6 +1,10 @@
 package com.example.hashtag;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +12,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class FoodActivity extends AppCompatActivity {
+
+    GridView grid;
+    ArrayList<FoodCategory> fdcat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +28,33 @@ public class FoodActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        grid=(GridView) findViewById(R.id.itemsGV);
+        fdcat=new ArrayList<FoodCategory>();
+
+        fdcat.add(new FoodCategory(R.drawable.soup,"Soup",getResources().getColor(R.color.chinesewhite)));
+        fdcat.add(new FoodCategory(R.drawable.starters,"Starters",getResources().getColor(R.color.lavender)));
+        fdcat.add(new FoodCategory(R.drawable.briyani,"Briyani",getResources().getColor(R.color.palelavender)));
+        fdcat.add(new FoodCategory(R.drawable.curry,"Curries & Gravies",getResources().getColor(R.color.champagnepink)));
+        fdcat.add(new FoodCategory(R.drawable.kebabs,"Kebabs",getResources().getColor(R.color.chinesewhite)));
+        fdcat.add(new FoodCategory(R.drawable.bucketbriyani,"Bucket Briyani",getResources().getColor(R.color.lavender)));
+        fdcat.add(new FoodCategory(R.drawable.riceandnoodles,"Rice & Noodles",getResources().getColor(R.color.palelavender)));
+        fdcat.add(new FoodCategory(R.drawable.splmeals,"Special Meals",getResources().getColor(R.color.champagnepink)));
+        fdcat.add(new FoodCategory(R.drawable.eggitems,"Egg Items",getResources().getColor(R.color.chinesewhite)));
+        fdcat.add(new FoodCategory(R.drawable.breadparottas,"Bread & Parottas",getResources().getColor(R.color.lavender)));
+        fdcat.add(new FoodCategory(R.drawable.logo,"Add Soon...",getResources().getColor(R.color.palelavender)));
+        fdcat.add(new FoodCategory(R.drawable.dosa,"Dosa & Idiyappam",getResources().getColor(R.color.champagnepink)));
+
+        FoodCategoryAdapter adapter = new FoodCategoryAdapter(this, fdcat);
+        grid.setAdapter(adapter);
+
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                FoodCategory value = adapter.getItem(i);
+                Toast.makeText(getApplicationContext(), value.getData(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

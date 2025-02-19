@@ -50,7 +50,7 @@ public class GetstartedActivity extends AppCompatActivity {
         });
 
         viewPager = findViewById(R.id.idViewPager);
-        dotsLL = findViewById(R.id.idLLDots);
+        /*dotsLL = findViewById(R.id.idLLDots);
         sliderModalArrayList = new ArrayList<>();
         sliderModalArrayList.add(new SliderModel(R.drawable.favfood,"All Your Favorurites","Your next meal is just a tap away. Explore menus, place orders, and enjoy personalized features designed for convenience"));
         sliderModalArrayList.add(new SliderModel(R.drawable.fastdel,"Fast Delivery","Experience lightning-fast delivery with our app! Enjoy quick, reliable service, ensuring your favorite meals arrive hot and fresh."));
@@ -59,7 +59,7 @@ public class GetstartedActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         size = sliderModalArrayList.size();
         addDots(size, 0);
-        viewPager.addOnPageChangeListener(viewListener);
+        viewPager.addOnPageChangeListener(viewListener);*/
 
     }
     private void addDots(int size, int pos)

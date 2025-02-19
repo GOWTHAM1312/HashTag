@@ -7,4 +7,10 @@
     <color name="grey">#928D8D</color>
     <color name="lightorange">#FAA17A</color>
     <color name="lightgreen">#9CFFF6</color>
+    <color name="blue">#0F4D73</color>
+    <color name="lightgrey">#C5C6CC</color>
+    <color name="chinesewhite">#E4EFDF</color>
+    <color name="lavender">#E4E3F1</color>
+    <color name="palelavender">#DCEAF3</color>
+    <color name="champagnepink">#F6E0D5</color>
 </resources>

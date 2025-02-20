@@ -9,28 +9,29 @@
     android:background="@color/white"
     tools:context=".GetstartedActivity">
 
+    <!-- ViewPager for slider -->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/idViewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
+    <!-- Dots Indicator -->
     <LinearLayout
         android:id="@+id/idLLDots"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal" />
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <!-- Get Started Button -->
+    <Button
         android:id="@+id/getstartedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:text="Get Started"
-        android:textSize="20dp">
-
-    </Button>
+        android:textSize="20sp"
+        android:layout_margin="16dp"/>
 
 </LinearLayout>

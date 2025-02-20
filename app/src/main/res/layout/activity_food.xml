@@ -84,7 +84,8 @@
         android:layout_below="@+id/toppara"
         android:src="@drawable/whitecart"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="355dp">
+        android:layout_marginLeft="355dp"
+        android:id="@+id/foodactcart">
     </ImageView>
 
     <TextView

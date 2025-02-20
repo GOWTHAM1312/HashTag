@@ -150,7 +150,8 @@
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:textStyle="bold"
-            android:textColor="@color/orange">
+            android:textColor="@color/orange"
+            android:id="@+id/signuptext">
         </TextView>
 
     </LinearLayout>

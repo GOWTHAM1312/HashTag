@@ -1,6 +1,10 @@
 package com.example.hashtag;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +13,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends AppCompatActivity {
+
+    Button udbut,logoutbut;
+    ImageView backarr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +26,34 @@ public class ProfileActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        udbut=findViewById(R.id.updatebuttton);
+        logoutbut=findViewById(R.id.logoutbutton);
+        backarr=findViewById(R.id.arrbackprofile);
+
+        udbut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it=new Intent(ProfileActivity.this,FoodActivity.class);
+                startActivity(it);
+            }
+        });
+
+        logoutbut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(it);
+            }
+        });
+
+        backarr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it=new Intent(ProfileActivity.this,FoodActivity.class);
+                startActivity(it);
+            }
         });
     }
 }

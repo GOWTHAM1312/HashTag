@@ -26,6 +26,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
+        android:id="@+id/arrbackprofile"
         >
     </ImageView>
 
@@ -190,7 +191,9 @@
         android:layout_marginLeft="64dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="64dp"
-        android:id="@+id/updatebuttton"></Button>
+        android:id="@+id/updatebuttton">
+
+    </Button>
 
     <Button
         android:layout_width="match_parent"
@@ -201,6 +204,8 @@
         android:layout_below="@id/updatebuttton"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="0dp"
-        android:layout_marginRight="64dp"></Button>
+        android:layout_marginRight="64dp"
+        android:id="@+id/logoutbutton">
+    </Button>
 
 </RelativeLayout>

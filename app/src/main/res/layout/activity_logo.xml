@@ -56,8 +56,7 @@
     <ImageView
         android:layout_width="412dp"
         android:layout_height="283dp"
-        android:src="@drawable/startpagedownone"
         android:layout_alignParentBottom="true"
-        >
-    </ImageView>
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/startpagedownone"></ImageView>
 </RelativeLayout>

@@ -21,7 +21,8 @@
             android:layout_height="32dp"
             android:src="@drawable/commonbackarrow"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="20dp"
+            android:id="@+id/backarrowcart">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"

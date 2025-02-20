@@ -89,13 +89,20 @@
                         android:textSize="16sp"
                         android:textColor="@color/blue">
                     </TextView>
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/dropuparrow"
-                        android:layout_marginLeft="90dp"
-                        android:layout_gravity="center">
-                    </ImageView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/dropuparrow"
+                            android:layout_gravity="right">
+                        </ImageView>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -133,12 +140,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="140dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
                             android:layout_marginTop="12dp"
                             android:orientation="vertical">
                             <TextView
@@ -263,11 +271,350 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/netbanking"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/netbanking"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginBottom="22dp">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Net Banking"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="14dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="@color/blue">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/dropuparrow"
+                            android:layout_gravity="right">
+                        </ImageView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Bank from the List"
+                        android:textColor="@color/blue"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="12dp">
+                    </TextView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="10dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Select Bank"
+                            android:layout_marginLeft="16dp">
+                        </EditText>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="20dp">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/dropdownarrow"
+                                android:layout_gravity="right">
+                            </ImageView>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/lightgrey"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="Proceed">
+                    </Button>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/paypal"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/paypal"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginBottom="22dp">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paypal"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="14dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="@color/blue">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/dropuparrow"
+                            android:layout_gravity="right">
+                        </ImageView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Paypal ID"
+                        android:textColor="@color/blue"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="12dp">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="206dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:cardCornerRadius="10dp">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Name"
+                                android:layout_marginLeft="16dp">
+                            </EditText>
+                        </androidx.cardview.widget.CardView>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/lightgrey"
+                            android:text="Proceed">
+                        </Button>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/upi"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/rupee"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginBottom="22dp">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UPI"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="14dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="@color/blue">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/dropuparrow"
+                            android:layout_gravity="right">
+                        </ImageView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Choose App"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="12dp">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp">
+                        <ImageView
+                            android:layout_width="43dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/gpay"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="16dp">
+                        </ImageView>
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="12dp"
+                            android:src="@drawable/paytm"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp">
+                        </ImageView>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/phonepay"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp">
+                        </ImageView>
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/amazonpay"
+                            android:layout_marginLeft="20dp">
+                        </ImageView>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enter UPI ID"
+                        android:textColor="@color/blue"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="12dp">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="206dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:cardCornerRadius="10dp">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Name"
+                                android:layout_marginLeft="16dp">
+                            </EditText>
+                        </androidx.cardview.widget.CardView>
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/lightgrey"
+                            android:text="Verify">
+                        </Button>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-
     </ScrollView>
-
-
 </LinearLayout>

@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/smokewhite"
     android:layout_height="match_parent"
     tools:context=".FoodActivity">
 
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="466dp"
+        android:layout_height="352dp"
         android:src="@drawable/foodpagetop"
         android:layout_alignParentTop="true">
     </ImageView>

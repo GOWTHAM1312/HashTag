@@ -8,16 +8,27 @@ public class FoodItemModal {
     String rate;
     String quan;
 
+    String category;
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public FoodItemModal(){
 
     }
 
-    public FoodItemModal(int img, String name, String rate, String quan){
+    public FoodItemModal(int img, String name, String rate, String quan,String category){
         this.img=img;
         this.name=name;
         this.rate=rate;
         this.quan=quan;
+        this.category=category;
     }
 
     public int getImg() {

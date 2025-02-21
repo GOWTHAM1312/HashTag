@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:text="Get Started"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_margin="16dp"/>
 

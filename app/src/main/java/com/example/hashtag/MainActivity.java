@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it=new Intent(MainActivity.this,FoodActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 

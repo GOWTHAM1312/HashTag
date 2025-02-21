@@ -39,6 +39,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:backgroundTint="@color/white"
         android:id="@+id/emailCard"
         android:layout_below="@id/emailTV"
         app:cardCornerRadius="10dp">
@@ -70,6 +71,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:id="@+id/passCard"
+        android:backgroundTint="@color/white"
         android:layout_below="@id/passTV"
         app:cardCornerRadius="10dp">
         <EditText
@@ -127,6 +129,7 @@
         android:layout_below="@+id/termssignin"
         android:id="@+id/signinbutton"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:backgroundTint="@color/orange"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"

@@ -14,20 +14,20 @@
         android:layout_height="56dp"
         android:orientation="horizontal"
         android:layout_marginTop="56dp"
-        android:layout_marginLeft="26dp">
+        android:layout_marginLeft="15dp">
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/commonbackarrow"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/backarrowcart">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Card"
+            android:text="Cart"
             android:textStyle="bold"
             android:textSize="35sp"
             android:layout_gravity="center"

@@ -47,12 +47,12 @@
         android:src="@drawable/user"
         android:layout_toRightOf="@+id/tophead"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="190dp"
         android:id="@+id/userprofile">
     </ImageView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="322dp"
+        android:layout_width="300dp"
         android:layout_height="32dp"
         android:id="@+id/searchbar"
         android:layout_below="@+id/toppara"
@@ -81,10 +81,11 @@
     <ImageView
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_below="@+id/toppara"
+        android:layout_toRightOf="@+id/searchbar"
         android:src="@drawable/whitecart"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="355dp"
+        android:layout_below="@+id/userprofile"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/foodactcart">
     </ImageView>
 

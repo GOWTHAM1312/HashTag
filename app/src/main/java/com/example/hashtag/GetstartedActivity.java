@@ -43,6 +43,7 @@ public class GetstartedActivity extends AppCompatActivity {
         but.setOnClickListener(v -> {
             Intent it = new Intent(GetstartedActivity.this, MainActivity.class);
             startActivity(it);
+            finish();
         });
 
         // Initialize ViewPager and Dots Layout

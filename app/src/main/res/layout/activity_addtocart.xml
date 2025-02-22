@@ -14,7 +14,8 @@
         android:layout_height="56dp"
         android:orientation="horizontal"
         android:layout_marginTop="56dp"
-        android:layout_marginLeft="15dp">
+        android:layout_marginLeft="15dp"
+        android:id="@+id/cartpagell">
 
         <ImageView
             android:layout_width="32dp"
@@ -36,5 +37,16 @@
         </TextView>
 
     </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cartlist"
+        android:layout_below="@+id/cartpagell"
+        android:layout_margin="20dp"
+        android:horizontalSpacing="20dp"
+        android:verticalSpacing="20dp"
+        >
+    </ListView>
 
 </LinearLayout>

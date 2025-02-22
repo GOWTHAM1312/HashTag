@@ -57,7 +57,7 @@
         android:id="@+id/searchbar"
         android:layout_below="@+id/toppara"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp">
         <ImageView
@@ -77,14 +77,14 @@
             android:layout_marginLeft="28dp">
         </EditText>
     </androidx.cardview.widget.CardView>
-    
+
     <ImageView
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_toRightOf="@+id/searchbar"
         android:src="@drawable/whitecart"
         android:layout_below="@+id/userprofile"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="27dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/foodactcart">
     </ImageView>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends AppCompatActivity {
-
+    EditText phonenunber,address;
     Button udbut,logoutbut;
     ImageView backarr;
 
@@ -28,6 +29,8 @@ public class ProfileActivity extends AppCompatActivity {
             return insets;
         });
 
+        phonenunber=findViewById(R.id.mobileET);
+        address=findViewById(R.id.addressET);
         udbut=findViewById(R.id.updatebuttton);
         logoutbut=findViewById(R.id.logoutbutton);
         backarr=findViewById(R.id.arrbackprofile);
@@ -35,8 +38,18 @@ public class ProfileActivity extends AppCompatActivity {
         udbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it=new Intent(ProfileActivity.this,FoodActivity.class);
-                startActivity(it);
+                if(phonenunber.getText().toString().isEmpty())
+                {
+                    phonenunber.setError("Please Enter your Phone Number");
+                }
+                else if (address.getText().toString().isEmpty())
+                {
+                    address.setError("Please Enter your Address");
+                }
+                else {
+                    Intent it=new Intent(ProfileActivity.this,FoodActivity.class);
+                    startActivity(it);
+                }
             }
         });
 
@@ -45,14 +58,14 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 
         backarr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it=new Intent(ProfileActivity.this,FoodActivity.class);
-                startActivity(it);
+                finish();
             }
         });
     }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText username,password;
     Button but;
     TextView tx;
 
@@ -28,15 +30,28 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        username=findViewById(R.id.emailET);
+        password=findViewById(R.id.passwordET);
         but=findViewById(R.id.signinbutton);
         tx=findViewById(R.id.signuptext);
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it=new Intent(MainActivity.this,FoodActivity.class);
-                startActivity(it);
-                finish();
+                if(username.getText().toString().isEmpty())
+                {
+                    username.setError("Please Enter your Username");
+                }
+                else if (password.getText().toString().isEmpty())
+                {
+                    password.setError("Please Enter your Password");
+                }
+                else
+                {
+                    Intent it=new Intent(MainActivity.this,FoodActivity.class);
+                    startActivity(it);
+                    finish();
+                }
             }
         });
 

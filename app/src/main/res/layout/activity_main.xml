@@ -101,31 +101,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I've read and agreed to "
+            android:text="Do you agree to Log In?"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:textColor="@color/black">
         </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Agreement"
-            android:textStyle="bold"
-            android:textColor="@color/orange">
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" and "
-            android:textColor="@color/black">
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Privacy Policy"
-            android:textStyle="bold"
-            android:textColor="@color/orange">
-        </TextView>
 
     </LinearLayout>
 

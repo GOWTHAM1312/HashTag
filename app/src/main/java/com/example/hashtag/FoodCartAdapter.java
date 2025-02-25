@@ -26,7 +26,7 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
     @Override
     public View getView(int position, @Nullable View convertView, @androidx.annotation.NonNull ViewGroup parent) {
         View listitemView = convertView;
-        ViewHolder holder;
+        //ViewHolder holder;
         if (listitemView == null) {
             // Layout Inflater inflates each item to be displayed in GridView.
             listitemView = LayoutInflater.from(getContext()).inflate(R.layout.cartlayout, parent, false);

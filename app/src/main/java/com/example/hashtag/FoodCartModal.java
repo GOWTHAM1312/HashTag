@@ -1,18 +1,13 @@
 package com.example.hashtag;
 
 public class FoodCartModal {
-
     int img;
     String name;
-    String price;
+    int price;
     String quan;
     int numitems;
 
-    public FoodCartModal(){
-
-    }
-
-    public FoodCartModal(int img, String name, String price, String quan, int numitems){
+    public FoodCartModal(int img, String name, int price, String quan, int numitems) {
         this.img = img;
         this.name = name;
         this.price = price;
@@ -36,11 +31,11 @@ public class FoodCartModal {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

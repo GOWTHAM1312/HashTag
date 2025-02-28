@@ -1,11 +1,16 @@
 package com.example.hashtag;
 
+import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.content.Intent;
+import android.media.RouteListingPreference;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -13,17 +18,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.credentials.webauthn.Cbor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddtocartActivity extends AppCompatActivity {
 
     ImageView arr;
 
+    TextView qtyTV,totalTV;
+
     ListView list;
+
+    Button pay;
 
     ArrayList<FoodCartModal> cartitem;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,22 +57,38 @@ public class AddtocartActivity extends AppCompatActivity {
             }
         });
 
-        cartitem=new ArrayList<FoodCartModal>();
-        cartitem.add(new FoodCartModal(R.drawable.chickenbriyani,"Chicken Briyani","₹130","per 1kg",2));
-        cartitem.add(new FoodCartModal(R.drawable.muttonbriyani,"Mutton Briyani","₹435","per 1kg",3));
+        qtyTV=(TextView)findViewById(R.id.cartnumofitemTv);
+        totalTV=(TextView)findViewById(R.id.totalTv);
 
-        FoodCartAdapter adapter = new FoodCartAdapter(this,cartitem);
+        List<FoodCartModal> itemList = new ArrayList<>();
+        itemList.add(new FoodCartModal(R.drawable.chickenbriyani,"Briyani",120, "per 100g",1));
+        //itemList.add(new FoodCartModal(1, 1,20));
+        //itemList.add(new FoodCartModal(2, 1,30));
+        //itemList.add(new FoodCartModal(3, 1,40));
+        //itemList.add(new FoodCartModal(4, 1,50));
+        //itemList.add(new FoodCartModal(5, 1,60));
 
-        list = (ListView) findViewById(R.id.cartlist);
+        ListView listView = findViewById(R.id.cartlist);
+        FoodCartAdapter adapter1 = new FoodCartAdapter(this, itemList);
+        listView.setAdapter(adapter1);
 
-        list.setAdapter(adapter);
+        int sum=0,qty=0;
+        for (FoodCartModal i:itemList)
+        {
+            qty= qty+i.getPrice();
+            sum=sum+i.getNumitems();
+        }
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        qtyTV.setText("Quantity: "+qty);
+        totalTV.setText("Total Price: "+sum);
+
+        pay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                FoodCartModal value = adapter.getItem(i);
-                Toast.makeText(getApplicationContext(), value.getName(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                Intent it = new Intent(AddtocartActivity.this, PaymentActivity.class);
+                startActivity(it);
             }
         });
+
     }
 }

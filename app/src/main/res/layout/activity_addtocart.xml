@@ -84,7 +84,8 @@
                         android:text="₹600"
                         android:textSize="15sp"
                         android:textColor="@color/smokewhite"
-                        android:textStyle="normal">
+                        android:textStyle="normal"
+                        android:id="@+id/totalTv">
                     </TextView>
                 </LinearLayout>
 
@@ -102,7 +103,7 @@
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_margin="10dp"
-
+                        android:id="@+id/paymentbut"
                         >
                     </Button>
                 </LinearLayout>

@@ -82,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:hint="Enter Your Name">
         </EditText>
@@ -114,6 +115,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_margin="0dp"
             android:textSize="15sp"
             android:hint="Enter Your E-Mail">
@@ -148,6 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
             android:textSize="15sp"
+            android:textColor="@color/black"
             android:id="@+id/mobileET"
             android:hint="Enter Your Number">
         </EditText>
@@ -180,6 +183,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_margin="0dp"
             android:textSize="15sp"
             android:id="@+id/addressET"

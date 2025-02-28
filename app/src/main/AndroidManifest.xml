@@ -13,22 +13,20 @@
         android:theme="@style/Theme.HashTag"
         tools:targetApi="31">
         <activity
+            android:name=".StaticFoodPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".FoodActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".CategorypageActivity"
-            android:exported="false" >
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".AddtocartActivity"
             android:exported="false" />
         <activity
             android:name=".PaymentActivity"
-            android:exported="false" >
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ThankingActivity"
             android:exported="false" />
@@ -37,15 +35,13 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".GetstartedActivity"
-            android:exported="false" >
-
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />

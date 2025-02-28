@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/smokewhite"
+    tools:context=".StaticFoodPageActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="352dp"
+        android:src="@drawable/foodpagetop"
+        android:layout_alignParentTop="true">
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey there !"
+        android:id="@+id/tophead"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tophead"
+        android:id="@+id/toppara"
+        android:text="Find your food now"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp">
+    </TextView>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/user"
+        android:layout_toRightOf="@+id/tophead"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="190dp"
+        android:id="@+id/staticuserprofile">
+    </ImageView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="32dp"
+        android:id="@+id/staticsearchbar"
+        android:layout_below="@+id/toppara"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/search"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center_vertical">
+        </ImageView>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="28dp">
+        </EditText>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_toRightOf="@+id/staticsearchbar"
+        android:src="@drawable/whitecart"
+        android:layout_below="@+id/staticuserprofile"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/staticfoodaddcart">
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/staticsearchbar"
+        android:id="@+id/explore"
+        android:text="Explore Our Foods !..."
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginTop="15dp">
+    </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/explore"
+        android:layout_marginTop="25dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="223dp"
+                android:id="@+id/card1"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/chinesewhite">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="136dp"
+                        android:layout_height="173dp"
+                        android:src="@drawable/soup"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/cardimg1"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Soups"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/cardtext1"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="133dp"
+                android:layout_toRightOf="@id/card1"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="@color/lavender"
+                android:id="@+id/card2"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="87dp"
+                        android:layout_height="133dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/starters"
+                        android:id="@+id/cardimg2"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Starters"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/cardtext2"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="133dp"
+                android:layout_below="@id/card1"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="@color/palelavender"
+                android:id="@+id/card3"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="108dp"
+                        android:layout_height="106dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/briyani"
+                        android:id="@+id/cardimg3"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Briyani"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/cardtext3"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="223dp"
+                android:layout_toRightOf="@id/card1"
+                android:layout_below="@id/card2"
+                android:id="@+id/card4"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/champagnepink">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/cardimg4"
+                        android:layout_width="119dp"
+                        android:layout_height="150dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/curry">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/cardtext4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Curries &amp;"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardtext4"
+                        android:layout_marginLeft="10dp"
+                        android:text="Gravies"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="223dp"
+                android:layout_below="@id/card3"
+                android:id="@+id/card5"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/chinesewhite">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="108dp"
+                        android:layout_height="164dp"
+                        android:src="@drawable/kebabs"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/cardimg5"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kebabs"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/cardtext5"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="133dp"
+                android:layout_toRightOf="@id/card5"
+                android:layout_below="@id/card4"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="@color/lavender"
+                android:id="@+id/card6"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="118.5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/bucketbriyani"
+                        android:id="@+id/cardimg6"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bucket"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:id="@+id/cardtext6"
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardtext6"
+                        android:layout_marginLeft="5dp"
+                        android:text="Briyani"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="133dp"
+                android:layout_below="@id/card5"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="@color/palelavender"
+                android:id="@+id/card7"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="108dp"
+                        android:layout_height="99dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/riceandnoodles"
+                        android:id="@+id/cardimg7"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rice &amp;"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:id="@+id/cardtext7"
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Noodles"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_below="@id/cardtext7"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="223dp"
+                android:layout_toRightOf="@id/card7"
+                android:layout_below="@id/card6"
+                android:id="@+id/card8"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/champagnepink">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/cardimg8"
+                        android:layout_width="148dp"
+                        android:layout_height="153dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/splmeals">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/cardtext8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Special"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardtext8"
+                        android:layout_marginLeft="10dp"
+                        android:text="Meals"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="223dp"
+                android:layout_below="@id/card7"
+                android:id="@+id/card9"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/chinesewhite">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="151dp"
+                        android:layout_height="160dp"
+                        android:src="@drawable/eggitems"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/cardimg9"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Egg Items"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/cardtext9"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="133dp"
+                android:layout_toRightOf="@id/card9"
+                android:layout_below="@id/card8"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="@color/lavender"
+                android:id="@+id/card10"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="84.78dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/breadparottas"
+                        android:id="@+id/cardimg10"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bread &amp;"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:id="@+id/cardtext10"
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardtext10"
+                        android:layout_marginLeft="5dp"
+                        android:text="Parottas"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="133dp"
+                android:layout_below="@id/card9"
+                android:layout_margin="15dp"
+                app:cardBackgroundColor="@color/palelavender"
+                android:id="@+id/card11"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Added Soon...!"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="25dp"
+                        android:layout_centerInParent="true">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="176dp"
+                android:layout_height="223dp"
+                android:layout_toRightOf="@id/card11"
+                android:layout_below="@id/card10"
+                android:id="@+id/card12"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/champagnepink">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/cardimg12"
+                        android:layout_width="166dp"
+                        android:layout_height="162dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/dosa">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/cardtext12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Dosa &amp;"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cardtext12"
+                        android:layout_marginLeft="10dp"
+                        android:text="Idiyappam"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

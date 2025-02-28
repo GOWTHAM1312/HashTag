@@ -1,11 +1,13 @@
 package com.example.hashtag;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,54 +16,81 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
     int x=1;
 
-    public FoodCartAdapter(@androidx.annotation.NonNull Context context, ArrayList<FoodCartModal> resource) {
-        super(context, 0,resource);
+    private Context context;
+    private List<FoodCartModal> itemList;
+
+    public FoodCartAdapter(Context context, List<FoodCartModal> itemList) {
+        super(context, 0, itemList);
+        this.context = context;
+        this.itemList = itemList;
     }
 
-    @androidx.annotation.NonNull
+
+    @SuppressLint("WrongViewCast")
     @Override
-    public View getView(int position, @Nullable View convertView, @androidx.annotation.NonNull ViewGroup parent) {
-        View listitemView = convertView;
-        //ViewHolder holder;
-        if (listitemView == null) {
-            // Layout Inflater inflates each item to be displayed in GridView.
-            listitemView = LayoutInflater.from(getContext()).inflate(R.layout.cartlayout, parent, false);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = convertView;
+        FoodCartAdapter.ViewHolder holder;
+
+        if (view == null)
+        {
+            view = LayoutInflater.from(context).inflate(R.layout.cartlayout, parent, false);
+            holder = new ViewHolder();
+            holder.imgview = view.findViewById(R.id.cartImg);
+            holder.textView = view.findViewById(R.id.cartnameTv);
+            holder.textView1 = view.findViewById(R.id.cartquanTv);
+            holder.valueTextView = view.findViewById(R.id.cartnumofitemTv);
+            holder.incrementButton = view.findViewById(R.id.plus);
+            holder.decrementButton = view.findViewById(R.id.minus);
+        }
+        else
+        {
+            holder = (FoodCartAdapter.ViewHolder) view.getTag();
         }
 
-        FoodCartModal itemModel = getItem(position);
-        TextView itmTV = listitemView.findViewById(R.id.cartnameTv);
-        TextView itmTV1 = listitemView.findViewById(R.id.cartquanTv);
-        TextView itmTV2= listitemView.findViewById(R.id.cartrateTv);
-        TextView itmTV3= listitemView.findViewById(R.id.cartnumofitemTv);
-        ImageView itmIV = listitemView.findViewById(R.id.cartImg);
-        ImageView minusIV = listitemView.findViewById(R.id.minus);
-        ImageView plusIV = listitemView.findViewById(R.id.plus);
+        final FoodCartModal item = getItem(position);
 
-        itmTV.setText(itemModel.getName());
-        itmTV2.setText(itemModel.getPrice());
-        itmTV1.setText(itemModel.getQuan());
-        itmTV3.setText(String.valueOf(itemModel.getNumitems()));
-        itmIV.setImageResource(itemModel.getImg());
+        holder.textView.setText("Item " + item.getName());
+        holder.valueTextView.setText(String.valueOf(item.getNumitems()));
+        holder.textView1.setText("Rs. "+item.getPrice());
 
-        minusIV.setOnClickListener(new View.OnClickListener() {
+        holder.incrementButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), itmTV.getText().toString(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v)
+            {
+                item.setNumitems(item.getNumitems() + 1);
+                holder.valueTextView.setText(String.valueOf(item.getNumitems()));
             }
         });
 
-        plusIV.setOnClickListener(new View.OnClickListener() {
+        holder.decrementButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), itmTV.getText().toString(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v)
+            {
+                item.setNumitems(item.getNumitems() - 1);
+                holder.valueTextView.setText(String.valueOf(item.getNumitems()));
             }
         });
 
-        return listitemView;
-
+        return view;
     }
+
+    private static class ViewHolder
+    {
+        ImageView imgview;
+        TextView textView;
+        TextView textView1;
+        TextView valueTextView;
+        Button incrementButton;
+        Button decrementButton;
+    }
+
+
 }

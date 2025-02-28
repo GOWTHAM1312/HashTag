@@ -11,8 +11,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LogoActivity extends AppCompatActivity {
     ImageView img;
+    FirebaseAuth fAuth;
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        fAuth=FirebaseAuth.getInstance();
+        if(fAuth.getCurrentUser()!=null) {
+            Intent it = new Intent(LogoActivity.this, FoodActivity.class);
+            startActivity(it);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

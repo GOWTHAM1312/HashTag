@@ -13,10 +13,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ProfileActivity extends AppCompatActivity {
     EditText phonenunber,address;
     Button udbut,logoutbut;
     ImageView backarr;
+
+    private FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class ProfileActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        fAuth=FirebaseAuth.getInstance();
 
         phonenunber=findViewById(R.id.mobileET);
         address=findViewById(R.id.addressET);
@@ -56,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
         logoutbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fAuth.getInstance().signOut();
                 Intent it = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(it);
                 finish();

@@ -74,8 +74,11 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
             @Override
             public void onClick(View v)
             {
-                item.setNumitems(item.getNumitems() - 1);
-                holder.valueTextView.setText(String.valueOf(item.getNumitems()));
+                if(item.getNumitems()>=1)
+                {
+                    item.setNumitems(item.getNumitems() - 1);
+                    holder.valueTextView.setText(String.valueOf(item.getNumitems()));
+                }
             }
         });
 
@@ -88,8 +91,8 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
         TextView textView;
         TextView textView1;
         TextView valueTextView;
-        Button incrementButton;
-        Button decrementButton;
+        ImageView incrementButton;
+        ImageView decrementButton;
     }
 
 

@@ -79,9 +79,10 @@ public class AddtocartActivity extends AppCompatActivity {
             sum=sum+i.getNumitems();
         }
 
-        qtyTV.setText("Quantity: "+qty);
-        totalTV.setText("Total Price: "+sum);
+        //qtyTV.setText("Quantity: "+qty);
+        //otalTV.setText("Total Price: "+sum);
 
+        pay=findViewById(R.id.paymentbut);
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

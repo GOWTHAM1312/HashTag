@@ -16,6 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class CategorypageActivity extends AppCompatActivity {
@@ -31,6 +34,8 @@ public class CategorypageActivity extends AppCompatActivity {
 
     ImageView arr,cart;
 
+    DatabaseReference dbRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,8 @@ public class CategorypageActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        dbRef = FirebaseDatabase.getInstance().getReference();
 
         grid1=(GridView) findViewById(R.id.itemsGV1);
         fditm=new ArrayList<FoodItemModal>();
@@ -197,6 +204,12 @@ public class CategorypageActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 FoodItemModal value = adapter.getItem(i);
                 Toast.makeText(getApplicationContext(), value.getName(), Toast.LENGTH_SHORT).show();
+
+                String id = dbRef.push().getKey();
+                FoodItemModal food = new FoodItemModal(id,value.getImg(),value.getName(),value.getRate(),value.getQuan(),value.getCategory());
+                dbRef.child(id).setValue(food);
+
+                Toast.makeText(CategorypageActivity.this, "Added to Cart!", Toast.LENGTH_SHORT).show();
             }
         });
     }

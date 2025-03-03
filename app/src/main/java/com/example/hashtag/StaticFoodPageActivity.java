@@ -1,6 +1,9 @@
 package com.example.hashtag;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +35,21 @@ public abstract class StaticFoodPageActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        card1=findViewById(R.id.card1);
+
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                SharedPreferences sharedPreferences = getSharedPreferences("Category", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("categoryName", "Soup");
+                editor.apply();
+                Intent i=new Intent(StaticFoodPageActivity.this,FoodCategory.class);
+                startActivity(i);
+            }
         });
     }
 

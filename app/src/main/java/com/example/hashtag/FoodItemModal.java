@@ -2,6 +2,7 @@ package com.example.hashtag;
 
 public class FoodItemModal {
 
+    String id;
     int img;
 
     String name;
@@ -21,6 +22,15 @@ public class FoodItemModal {
 
     public FoodItemModal(){
 
+    }
+
+    public FoodItemModal(String id, int img, String name, String rate, String quan,String category){
+        this.id=id;
+        this.img=img;
+        this.name=name;
+        this.rate=rate;
+        this.quan=quan;
+        this.category=category;
     }
 
     public FoodItemModal(int img, String name, String rate, String quan,String category){

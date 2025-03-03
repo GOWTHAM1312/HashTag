@@ -106,7 +106,8 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="right"
-                            android:src="@drawable/baseline_arrow_drop_down_24"></ImageView>
+                            android:src="@drawable/baseline_arrow_drop_down_24">
+                        </ImageView>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -116,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:id="@+id/cardpaymentchild"
-                    android:visibility="gone"
+                    android:visibility=""
                     android:background="@color/white">
 
                     <TextView
@@ -141,6 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="xxxx-xxxx-xxxx-xxxx"
+
                             android:layout_marginLeft="16dp">
                         </EditText>
                     </androidx.cardview.widget.CardView>

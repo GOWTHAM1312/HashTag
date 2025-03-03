@@ -57,8 +57,7 @@ public class AddtocartActivity extends AppCompatActivity {
             }
         });
 
-        qtyTV=(TextView)findViewById(R.id.cartnumofitemTv);
-        totalTV=(TextView)findViewById(R.id.totalTv);
+
 
         List<FoodCartModal> itemList = new ArrayList<>();
         itemList.add(new FoodCartModal(R.drawable.chickenbriyani,"Briyani",120, "per 100g",1));

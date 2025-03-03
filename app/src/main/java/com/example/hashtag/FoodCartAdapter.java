@@ -1,6 +1,7 @@
 package com.example.hashtag;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         FoodCartAdapter.ViewHolder holder;
-
+        final View rootView = ((Activity)context).getWindow().getDecorView().findViewById(android.R.id.content);
         if (view == null)
         {
             view = LayoutInflater.from(context).inflate(R.layout.cartlayout, parent, false);
@@ -64,8 +65,22 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
             @Override
             public void onClick(View v)
             {
-                item.setNumitems(item.getNumitems() + 1);
+                int val = item.getNumitems()+1;
+                item.setNumitems(val);
                 holder.valueTextView.setText(String.valueOf(item.getNumitems()));
+
+                TextView qtyTV=rootView.findViewById(R.id.cartnumofitemTv);
+                TextView totalTV=rootView.findViewById(R.id.totalTv);
+
+                int sum=0,qty=0;
+                for (FoodCartModal i:itemList) {
+                    qty = qty + i.getNumitems();
+                    sum = sum + i.getPrice();
+                }
+                qty+=val;
+                sum+=(val*item.getPrice());
+                qtyTV.setText("Quantity: "+qty);
+                totalTV.setText("Total Price: "+sum);
             }
         });
 

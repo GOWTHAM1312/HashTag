@@ -99,6 +99,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please enter email!!",Toast.LENGTH_LONG).show();
             return;
         }
+
         if (TextUtils.isEmpty(pass))
         {
             Toast.makeText(getApplicationContext(),"Please enter password!!",Toast.LENGTH_LONG).show();

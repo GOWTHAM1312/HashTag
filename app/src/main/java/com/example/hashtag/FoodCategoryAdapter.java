@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class FoodCategoryAdapter extends ArrayAdapter<FoodCategory> {
     public FoodCategoryAdapter(@NonNull Context context, ArrayList<FoodCategory> resource) {
         super(context, 0,resource);
-
     }
     @NonNull
     @Override

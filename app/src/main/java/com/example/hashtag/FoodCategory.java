@@ -6,6 +6,7 @@ public class FoodCategory {
     String data;
     int colour;
 
+
     public FoodCategory(){
 
     }

@@ -31,7 +31,6 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
         this.itemList = itemList;
     }
 
-
     @SuppressLint("WrongViewCast")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

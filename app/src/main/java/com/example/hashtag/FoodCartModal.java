@@ -15,6 +15,7 @@ public class FoodCartModal {
         this.numitems = numitems;
     }
 
+
     public int getImg() {
         return img;
     }

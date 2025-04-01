@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class GetstartedActivity extends AppCompatActivity {
 
+
     Button but;
     private ViewPager viewPager;
     private LinearLayout dotsLL;

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         tx=findViewById(R.id.signuptext);
         termsCond=findViewById(R.id.termsCB);
 
+
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

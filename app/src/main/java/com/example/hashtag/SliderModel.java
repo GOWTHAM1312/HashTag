@@ -12,6 +12,7 @@ public class SliderModel {
     public SliderModel(){
     }
 
+
     public SliderModel(int img,String head,String pra){
         this.img=img;
         this.head=head;

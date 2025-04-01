@@ -22,6 +22,7 @@ public class SliderAdapter extends PagerAdapter {
         this.sliderModalArrayList = sliderModalArrayList;
     }
 
+
     @Override
     public int getCount() {
         return sliderModalArrayList.size();

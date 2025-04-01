@@ -5,6 +5,7 @@ public class FoodItemModal {
     String id;
     int img;
 
+
     String name;
     String rate;
     String quan;

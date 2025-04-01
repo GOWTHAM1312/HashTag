@@ -25,6 +25,7 @@ public class CategorypageActivity extends AppCompatActivity {
 
     GridView grid1;
 
+
     ArrayList<FoodItemModal> fditm;
 
     ArrayList<FoodItemModal> fdfilter;

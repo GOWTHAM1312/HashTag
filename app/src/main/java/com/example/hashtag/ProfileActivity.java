@@ -41,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         logoutbut=findViewById(R.id.logoutbutton);
         backarr=findViewById(R.id.arrbackprofile);
 
+
         udbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

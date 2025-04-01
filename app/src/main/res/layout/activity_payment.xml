@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:id="@+id/cardpaymentchild"
-                    android:visibility=""
+                    android:visibility="gone"
                     android:background="@color/white">
 
                     <TextView

@@ -78,6 +78,7 @@ public class AddtocartActivity extends AppCompatActivity {
             sum=sum+i.getNumitems();
         }
 
+
         //qtyTV.setText("Quantity: "+qty);
         //otalTV.setText("Total Price: "+sum);
 

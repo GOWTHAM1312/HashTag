@@ -90,8 +90,25 @@ public class FoodCartAdapter extends ArrayAdapter<FoodCartModal> {
             {
                 if(item.getNumitems()>=1)
                 {
-                    item.setNumitems(item.getNumitems() - 1);
+                    //item.setNumitems(item.getNumitems() - 1);
+                    //holder.valueTextView.setText(String.valueOf(item.getNumitems()));
+
+                    int val = item.getNumitems()-1;
+                    item.setNumitems(val);
                     holder.valueTextView.setText(String.valueOf(item.getNumitems()));
+
+                    TextView qtyTV=rootView.findViewById(R.id.cartnumofitemTv);
+                    TextView totalTV=rootView.findViewById(R.id.totalTv);
+
+                    int sum=0,qty=0;
+                    for (FoodCartModal i:itemList) {
+                        qty = qty - i.getNumitems();
+                        sum = sum - i.getPrice();
+                    }
+                    qty-=val;
+                    sum-=(val*item.getPrice());
+                    qtyTV.setText("Quantity: "+qty);
+                    totalTV.setText("Total Price: "+sum);
                 }
             }
         });

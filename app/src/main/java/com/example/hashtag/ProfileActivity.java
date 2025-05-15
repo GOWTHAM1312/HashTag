@@ -49,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
                 } else if (address.getText().toString().isEmpty()) {
                     address.setError("Please Enter your Address");
                 } else {
-                    Intent it = new Intent(ProfileActivity.this, FoodActivity.class);
+                    Intent it = new Intent(ProfileActivity.this, StaticFoodPageActivity.class);
                     startActivity(it);
                     finish();  // prevent going back to profile after update
                 }

@@ -16,8 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
-    EditText phonenunber,address;
-    Button udbut,logoutbut;
+    EditText phonenunber, address;
+    Button udbut, logoutbut;
     ImageView backarr;
 
     private FirebaseAuth fAuth;
@@ -33,29 +33,25 @@ public class ProfileActivity extends AppCompatActivity {
             return insets;
         });
 
-        fAuth=FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
-        phonenunber=findViewById(R.id.mobileET);
-        address=findViewById(R.id.addressET);
-        udbut=findViewById(R.id.updatebuttton);
-        logoutbut=findViewById(R.id.logoutbutton);
-        backarr=findViewById(R.id.arrbackprofile);
-
+        phonenunber = findViewById(R.id.mobileET);
+        address = findViewById(R.id.addressET);
+        udbut = findViewById(R.id.updatebuttton);
+        logoutbut = findViewById(R.id.logoutbutton);
+        backarr = findViewById(R.id.arrbackprofile);
 
         udbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(phonenunber.getText().toString().isEmpty())
-                {
+                if (phonenunber.getText().toString().isEmpty()) {
                     phonenunber.setError("Please Enter your Phone Number");
-                }
-                else if (address.getText().toString().isEmpty())
-                {
+                } else if (address.getText().toString().isEmpty()) {
                     address.setError("Please Enter your Address");
-                }
-                else {
-                    Intent it=new Intent(ProfileActivity.this,FoodActivity.class);
+                } else {
+                    Intent it = new Intent(ProfileActivity.this, FoodActivity.class);
                     startActivity(it);
+                    finish();  // prevent going back to profile after update
                 }
             }
         });
@@ -63,17 +59,17 @@ public class ProfileActivity extends AppCompatActivity {
         logoutbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fAuth.getInstance().signOut();
+                fAuth.signOut();
                 Intent it = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(it);
-                finish();
+                finish();  // close profile activity on logout
             }
         });
 
         backarr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                finish(); // just close this screen, back to previous
             }
         });
     }

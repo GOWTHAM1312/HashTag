@@ -12,8 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="352dp"
         android:src="@drawable/foodpagetop"
-        android:layout_alignParentTop="true">
-    </ImageView>
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,8 +23,7 @@
         android:textStyle="bold"
         android:textSize="25sp"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp">
-    </TextView>
+        android:layout_marginLeft="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,8 +34,7 @@
         android:layout_marginLeft="20dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_marginTop="5dp">
-    </TextView>
+        android:layout_marginTop="5dp" />
 
     <ImageView
         android:layout_width="50dp"
@@ -46,8 +43,7 @@
         android:layout_toRightOf="@+id/tophead"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="190dp"
-        android:id="@+id/staticuserprofile">
-    </ImageView>
+        android:id="@+id/staticuserprofile" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
@@ -58,13 +54,13 @@
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp">
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/search"
             android:layout_marginLeft="4dp"
-            android:layout_gravity="center_vertical">
-        </ImageView>
+            android:layout_gravity="center_vertical" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -72,8 +68,8 @@
             android:hint="Search"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="-5dp"
-            android:layout_marginLeft="28dp">
-        </EditText>
+            android:layout_marginLeft="28dp" />
+
     </androidx.cardview.widget.CardView>
 
     <ImageView
@@ -84,8 +80,7 @@
         android:layout_below="@+id/staticuserprofile"
         android:layout_marginTop="27dp"
         android:layout_marginLeft="20dp"
-        android:id="@+id/staticfoodaddcart">
-    </ImageView>
+        android:id="@+id/staticfoodaddcart" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,18 +92,18 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="25sp"
-        android:layout_marginTop="15dp">
-    </TextView>
+        android:layout_marginTop="15dp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/explore"
         android:layout_marginTop="25dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="176dp"
                 android:layout_height="223dp"
@@ -116,10 +111,10 @@
                 android:layout_margin="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardBackgroundColor="@color/chinesewhite">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="136dp"
@@ -127,10 +122,7 @@
                         android:src="@drawable/soup"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentEnd="true"
-                        android:id="@+id/cardimg1"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -140,14 +132,11 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         android:layout_margin="10dp"
-                        android:id="@+id/cardtext1"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext1" />
 
                 </RelativeLayout>
-            </androidx.cardview.widget.CardView>
 
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="176dp"
@@ -157,10 +146,10 @@
                 app:cardBackgroundColor="@color/lavender"
                 android:id="@+id/card2"
                 app:cardCornerRadius="30dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="87dp"
@@ -168,10 +157,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:src="@drawable/starters"
-                        android:id="@+id/cardimg2"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -181,12 +167,10 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         android:layout_margin="10dp"
-                        android:id="@+id/cardtext2"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext2" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -197,10 +181,10 @@
                 app:cardBackgroundColor="@color/palelavender"
                 android:id="@+id/card3"
                 app:cardCornerRadius="30dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="108dp"
@@ -208,10 +192,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:src="@drawable/briyani"
-                        android:id="@+id/cardimg3"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg3" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -221,12 +202,10 @@
                         android:textSize="25dp"
                         android:textStyle="bold"
                         android:layout_margin="10dp"
-                        android:id="@+id/cardtext3"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext3" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -249,9 +228,7 @@
                         android:layout_height="150dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/curry">
-
-                    </ImageView>
+                        android:src="@drawable/curry" />
 
                     <TextView
                         android:id="@+id/cardtext4"
@@ -262,9 +239,7 @@
                         android:text="Curries &amp;"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -274,11 +249,10 @@
                         android:text="Gravies"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -289,10 +263,10 @@
                 android:layout_margin="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardBackgroundColor="@color/chinesewhite">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="108dp"
@@ -300,10 +274,7 @@
                         android:src="@drawable/kebabs"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentEnd="true"
-                        android:id="@+id/cardimg5"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg5" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -313,14 +284,11 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         android:layout_margin="10dp"
-                        android:id="@+id/cardtext5"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext5" />
 
                 </RelativeLayout>
-            </androidx.cardview.widget.CardView>
 
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="176dp"
@@ -331,10 +299,10 @@
                 app:cardBackgroundColor="@color/lavender"
                 android:id="@+id/card6"
                 app:cardCornerRadius="30dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="100dp"
@@ -342,10 +310,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:src="@drawable/bucketbriyani"
-                        android:id="@+id/cardimg6"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg6" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -356,10 +321,7 @@
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
                         android:layout_marginHorizontal="5dp"
-                        android:id="@+id/cardtext6"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext6" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -369,11 +331,10 @@
                         android:text="Briyani"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -384,10 +345,10 @@
                 app:cardBackgroundColor="@color/palelavender"
                 android:id="@+id/card7"
                 app:cardCornerRadius="30dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="108dp"
@@ -395,10 +356,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:src="@drawable/riceandnoodles"
-                        android:id="@+id/cardimg7"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg7" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -409,25 +367,20 @@
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
                         android:layout_marginHorizontal="5dp"
-                        android:id="@+id/cardtext7"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext7" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/cardtext7"
                         android:text="Noodles"
                         android:textColor="@color/black"
                         android:textSize="25dp"
                         android:textStyle="bold"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_below="@id/cardtext7"
-                        >
-
-                    </TextView>
+                        android:layout_marginHorizontal="5dp" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -450,9 +403,7 @@
                         android:layout_height="153dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/splmeals">
-
-                    </ImageView>
+                        android:src="@drawable/splmeals" />
 
                     <TextView
                         android:id="@+id/cardtext8"
@@ -463,9 +414,7 @@
                         android:text="Special"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -475,11 +424,10 @@
                         android:text="Meals"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -490,10 +438,10 @@
                 android:layout_margin="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardBackgroundColor="@color/chinesewhite">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="151dp"
@@ -501,10 +449,7 @@
                         android:src="@drawable/eggitems"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentEnd="true"
-                        android:id="@+id/cardimg9"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg9" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -514,14 +459,11 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         android:layout_margin="10dp"
-                        android:id="@+id/cardtext9"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext9" />
 
                 </RelativeLayout>
-            </androidx.cardview.widget.CardView>
 
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="176dp"
@@ -532,10 +474,10 @@
                 app:cardBackgroundColor="@color/lavender"
                 android:id="@+id/card10"
                 app:cardCornerRadius="30dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:layout_width="150dp"
@@ -543,10 +485,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:src="@drawable/breadparottas"
-                        android:id="@+id/cardimg10"
-                        >
-
-                    </ImageView>
+                        android:id="@+id/cardimg10" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -557,10 +496,7 @@
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
                         android:layout_marginHorizontal="5dp"
-                        android:id="@+id/cardtext10"
-                        >
-
-                    </TextView>
+                        android:id="@+id/cardtext10" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -570,11 +506,10 @@
                         android:text="Parottas"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -585,10 +520,10 @@
                 app:cardBackgroundColor="@color/palelavender"
                 android:id="@+id/card11"
                 app:cardCornerRadius="30dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -597,11 +532,10 @@
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="25dp"
-                        android:layout_centerInParent="true">
-
-                    </TextView>
+                        android:layout_centerInParent="true" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -624,9 +558,7 @@
                         android:layout_height="162dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/dosa">
-
-                    </ImageView>
+                        android:src="@drawable/dosa" />
 
                     <TextView
                         android:id="@+id/cardtext12"
@@ -637,9 +569,7 @@
                         android:text="Dosa &amp;"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -649,14 +579,11 @@
                         android:text="Idiyappam"
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
-
-
 
         </RelativeLayout>
 

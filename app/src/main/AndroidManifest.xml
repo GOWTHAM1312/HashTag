@@ -16,9 +16,6 @@
             android:name=".StaticFoodPageActivity"
             android:exported="false" />
         <activity
-            android:name=".FoodActivity"
-            android:exported="false"></activity>
-        <activity
             android:name=".CategorypageActivity"
             android:exported="false"></activity>
         <activity

@@ -251,7 +251,8 @@
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/lightgrey"
                             android:layout_marginTop="16dp"
-                            android:text="Proceed">
+                            android:text="Proceed"
+                            android:id="@+id/proceedCardBtn">
                         </Button>
 
                         <LinearLayout
@@ -388,7 +389,8 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginLeft="16dp"
-                        android:text="Proceed">
+                        android:text="Proceed"
+                        android:id="@+id/proceedNetBtn">
                     </Button>
 
                 </LinearLayout>
@@ -485,7 +487,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/lightgrey"
-                            android:text="Proceed">
+                            android:text="Proceed"
+                            android:id="@+id/proceedPaypalBtn">
                         </Button>
 
                     </LinearLayout>
@@ -638,7 +641,8 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:backgroundTint="@color/lightgrey"
-                                android:text="Verify">
+                                android:text="Verify"
+                                android:id="@+id/verifyUpiBtn">
                             </Button>
 
                         </LinearLayout>

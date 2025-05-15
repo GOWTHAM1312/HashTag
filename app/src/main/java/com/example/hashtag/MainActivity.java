@@ -2,7 +2,6 @@ package com.example.hashtag;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -24,99 +24,84 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText username,password;
+    EditText username, password;
     Button but;
     TextView tx;
-
     CheckBox termsCond;
 
-    public FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        // Set padding for edge-to-edge content around system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        mAuth=FirebaseAuth.getInstance();
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
-        username=findViewById(R.id.emailET);
-        password=findViewById(R.id.passwordET);
-        but=findViewById(R.id.signinbutton);
-        tx=findViewById(R.id.signuptext);
-        termsCond=findViewById(R.id.termsCB);
+        // Bind UI components
+        username = findViewById(R.id.emailET);
+        password = findViewById(R.id.passwordET);
+        but = findViewById(R.id.signinbutton);
+        tx = findViewById(R.id.signuptext);
+        termsCond = findViewById(R.id.termsCB);
 
-
-        but.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(username.getText().toString().isEmpty())
-                {
-                    username.setError("Please Enter your Username");
-                }
-                else if (password.getText().toString().isEmpty())
-                {
-                    password.setError("Please Enter your Password");
-                }
-                else if(!(termsCond.isChecked()))
-                {
-                    Toast.makeText(getApplicationContext(),"Please accept terms and conditions",Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    loginUserAccount();
-                }
+        // Login button click listener
+        but.setOnClickListener(v -> {
+            if (username.getText().toString().isEmpty()) {
+                username.setError("Please enter your email");
+            } else if (password.getText().toString().isEmpty()) {
+                password.setError("Please enter your password");
+            } else if (!termsCond.isChecked()) {
+                Toast.makeText(getApplicationContext(), "Please accept terms and conditions", Toast.LENGTH_LONG).show();
+            } else {
+                loginUserAccount();
             }
         });
 
-        tx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it=new Intent(MainActivity.this, SignupActivity.class);
-                startActivity(it);
-            }
+        // Sign up text click listener - navigate to SignupActivity
+        tx.setOnClickListener(v -> {
+            Intent it = new Intent(MainActivity.this, SignupActivity.class);
+            startActivity(it);
+            finish();
         });
     }
-    private void loginUserAccount()
-    {
-        String email, pass;
-        email = username.getText().toString();
-        pass = password.getText().toString();
 
-        if (TextUtils.isEmpty(email))
-        {
-            Toast.makeText(getApplicationContext(),"Please enter email!!",Toast.LENGTH_LONG).show();
+    private void loginUserAccount() {
+        String email = username.getText().toString();
+        String pass = password.getText().toString();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(), "Please enter email!", Toast.LENGTH_LONG).show();
             return;
         }
 
         if (TextUtils.isEmpty(pass)) {
-            Toast.makeText(getApplicationContext(),"Please enter password!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
 
+        // Attempt login with Firebase Authentication
         mAuth.signInWithEmailAndPassword(email, pass)
-                .addOnCompleteListener(
-                        new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(
-                                    @NonNull Task<AuthResult> task)
-                            {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(),"Login successful!!",Toast.LENGTH_LONG).show();
-                                    Intent it=new Intent(MainActivity.this,FoodActivity.class);
-                                    startActivity(it);
-                                    finish();
-                                }
-
-                                else {
-                                    Toast.makeText(getApplicationContext(),"Login failed!!",Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                        Intent it = new Intent(MainActivity.this, StaticFoodPageActivity.class);
+                        startActivity(it);
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                "Login failed! " + (task.getException() != null ? task.getException().getMessage() : ""),
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

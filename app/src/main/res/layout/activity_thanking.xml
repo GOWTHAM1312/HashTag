@@ -36,6 +36,7 @@
     </TextView>
 
     <Button
+        android:id="@+id/backToHomeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back To Home"

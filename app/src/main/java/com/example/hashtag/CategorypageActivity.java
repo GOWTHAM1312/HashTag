@@ -16,26 +16,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 
 public class CategorypageActivity extends AppCompatActivity {
 
     GridView grid1;
-
-
     ArrayList<FoodItemModal> fditm;
-
     ArrayList<FoodItemModal> fdfilter;
 
-    ImageView imgbg;
+    ImageView imgbg, arr, cart;
     TextView catename;
-
-    ImageView arr,cart;
-
-    DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +38,53 @@ public class CategorypageActivity extends AppCompatActivity {
             return insets;
         });
 
-        dbRef = FirebaseDatabase.getInstance().getReference();
+        grid1 = findViewById(R.id.itemsGV1);
+        imgbg = findViewById(R.id.bg);
+        catename = findViewById(R.id.catname);
+        arr = findViewById(R.id.commonarrow);
+        cart = findViewById(R.id.catpagecart);
 
-        grid1=(GridView) findViewById(R.id.itemsGV1);
-        fditm=new ArrayList<FoodItemModal>();
-        imgbg=findViewById(R.id.bg);
-        catename=findViewById(R.id.catname);
+        fditm = new ArrayList<>();
+        loadStaticItems();
 
+        SharedPreferences sharedPreferences = getSharedPreferences("Category", MODE_PRIVATE);
+        String categoryName = sharedPreferences.getString("categoryName", "");
+        catename.setText(categoryName);
+
+        setBackgroundImage(categoryName);
+
+        // Filter items by category
+        fdfilter = new ArrayList<>();
+        for (FoodItemModal food : fditm) {
+            if (food.getCategory().equals(categoryName)) {
+                fdfilter.add(food);
+            }
+        }
+
+        FoodItemAdapter adapter = new FoodItemAdapter(this, fdfilter);
+        grid1.setAdapter(adapter);
+
+        arr.setOnClickListener(v -> startActivity(new Intent(this, FoodActivity.class)));
+        cart.setOnClickListener(v -> startActivity(new Intent(this, AddtocartActivity.class)));
+    }
+
+    private void setBackgroundImage(String categoryName) {
+        switch (categoryName) {
+            case "Soup": imgbg.setImageResource(R.drawable.soupbg); break;
+            case "Starters": imgbg.setImageResource(R.drawable.starterbg); break;
+            case "Briyani": imgbg.setImageResource(R.drawable.briyanibg); break;
+            case "Curries & Gravies": imgbg.setImageResource(R.drawable.curryandgraviesbg); break;
+            case "Kebabs & Barbeque": imgbg.setImageResource(R.drawable.kebebsbg); break;
+            case "Bucket Briyani": imgbg.setImageResource(R.drawable.bucketbiryanibg); break;
+            case "Rice & Noodles": imgbg.setImageResource(R.drawable.riceandnoodlesbg); break;
+            case "Special Meals": imgbg.setImageResource(R.drawable.specialmealsbg); break;
+            case "Egg Items": imgbg.setImageResource(R.drawable.eggitemsbg); break;
+            case "Bread & Parottas": imgbg.setImageResource(R.drawable.breadandparottabg); break;
+            case "Dosa & Idiyappam": imgbg.setImageResource(R.drawable.dosaandidiyappambg); break;
+        }
+    }
+
+    private void loadStaticItems() {
         fditm.add(new FoodItemModal(R.drawable.attukalpayasoup,"Attukal Paya Soup","₹120","per 250ml","Soup"));
         fditm.add(new FoodItemModal(R.drawable.hotandsourchickensoup,"Hot & Sour Chicken Soup","₹250","per 250ml","Soup"));
         fditm.add(new FoodItemModal(R.drawable.chickenmilagu,"Chicken Milagu Soup","₹129","per 250ml","Soup"));
@@ -135,83 +165,5 @@ public class CategorypageActivity extends AppCompatActivity {
         fditm.add(new FoodItemModal(R.drawable.kaldosai,"Kal Dosai","₹40","1 set","Dosa & Idiyappam"));
         fditm.add(new FoodItemModal(R.drawable.eggdosai,"Egg Dosai","₹60","1 piece","Dosa & Idiyappam"));
         fditm.add(new FoodItemModal(R.drawable.eggappam,"Egg Appam","₹80","1 piece","Dosa & Idiyappam"));
-
-
-        SharedPreferences sharedPreferences = getSharedPreferences("Category", MODE_PRIVATE);
-        String categoryName= sharedPreferences.getString("categoryName", "");
-        Toast.makeText(this, categoryName, Toast.LENGTH_SHORT).show();
-
-
-        catename.setText(categoryName);
-
-        if (categoryName.equals("Soup")) {
-            imgbg.setImageResource(R.drawable.soupbg);
-        } else if (categoryName.equals("Starters")) {
-            imgbg.setImageResource(R.drawable.starterbg);
-        } else if (categoryName.equals("Briyani")) {
-            imgbg.setImageResource(R.drawable.briyanibg);
-        } else if (categoryName.equals("Curries & Gravies")) {
-            imgbg.setImageResource(R.drawable.curryandgraviesbg);
-        } else if (categoryName.equals("Kebabs & Barbeque")) {
-            imgbg.setImageResource(R.drawable.kebebsbg);
-        } else if (categoryName.equals("Bucket Briyani")) {
-            imgbg.setImageResource(R.drawable.bucketbiryanibg);
-        } else if (categoryName.equals("Rice & Noodles")) {
-            imgbg.setImageResource(R.drawable.riceandnoodlesbg);
-        } else if (categoryName.equals("Special Meals")) {
-            imgbg.setImageResource(R.drawable.specialmealsbg);
-        } else if (categoryName.equals("Egg Items")) {
-            imgbg.setImageResource(R.drawable.eggitemsbg);
-        } else if (categoryName.equals("Bread & Parottas")) {
-            imgbg.setImageResource(R.drawable.breadandparottabg);
-        } else if(categoryName.equals("Dosa & Idiyappam")) {
-            imgbg.setImageResource(R.drawable.dosaandidiyappambg);
-        }
-
-        arr=findViewById(R.id.commonarrow);
-        cart=findViewById(R.id.catpagecart);
-
-        arr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it=new Intent(CategorypageActivity.this,FoodActivity.class);
-                startActivity(it);
-            }
-        });
-
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(CategorypageActivity.this, AddtocartActivity.class);
-                startActivity(it);
-            }
-        });
-
-        fdfilter=new ArrayList<FoodItemModal>();
-
-        for (FoodItemModal food:fditm) {
-            if(food.getCategory().toString().equals(categoryName)){
-                fdfilter.add(food);
-            }
-        }
-
-        FoodItemAdapter adapter = new FoodItemAdapter(this,fdfilter);
-
-
-        grid1.setAdapter(adapter);
-
-        grid1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                FoodItemModal value = adapter.getItem(i);
-                Toast.makeText(getApplicationContext(), value.getName(), Toast.LENGTH_SHORT).show();
-
-                String id = dbRef.push().getKey();
-                FoodItemModal food = new FoodItemModal(id,value.getImg(),value.getName(),value.getRate(),value.getQuan(),value.getCategory());
-                dbRef.child(id).setValue(food);
-
-                Toast.makeText(CategorypageActivity.this, "Added to Cart!", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

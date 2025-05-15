@@ -23,8 +23,9 @@ public class LogoActivity extends AppCompatActivity {
         super.onStart();
         fAuth=FirebaseAuth.getInstance();
         if(fAuth.getCurrentUser()!=null) {
-            Intent it = new Intent(LogoActivity.this, FoodActivity.class);
+            Intent it = new Intent(LogoActivity.this, StaticFoodPageActivity.class);
             startActivity(it);
+            finish();
         }
     }
 

@@ -64,7 +64,7 @@ public class CategorypageActivity extends AppCompatActivity {
         FoodItemAdapter adapter = new FoodItemAdapter(this, fdfilter);
         grid1.setAdapter(adapter);
 
-        arr.setOnClickListener(v -> startActivity(new Intent(this, StaticFoodPageActivity.class)));
+        arr.setOnClickListener(v ->finish());
         cart.setOnClickListener(v -> startActivity(new Intent(this, AddtocartActivity.class)));
     }
 

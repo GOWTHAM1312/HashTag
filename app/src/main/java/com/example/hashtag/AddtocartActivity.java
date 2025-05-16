@@ -2,6 +2,7 @@ package com.example.hashtag;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,16 +16,21 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AddtocartActivity extends AppCompatActivity {
-
     ImageView backArrow;
     TextView qtyTV, totalTV;
     ListView listView;
@@ -55,13 +61,9 @@ public class AddtocartActivity extends AppCompatActivity {
         listView = findViewById(R.id.cartlist);
         paymentBtn = findViewById(R.id.paymentbut);
 
-        backArrow.setOnClickListener(v -> {
-            Intent it = new Intent(AddtocartActivity.this, FoodActivity.class);
-            startActivity(it);
-            finish();  // Close AddtocartActivity on back
-        });
-
         cartItems = new ArrayList<>();
+
+        backArrow.setOnClickListener(v -> finish());
 
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -88,10 +90,14 @@ public class AddtocartActivity extends AppCompatActivity {
         });
 
         paymentBtn.setOnClickListener(v -> {
-            // Redirect to PaymentActivity (payment logic handled there)
-            Intent intent = new Intent(AddtocartActivity.this, PaymentActivity.class);
-            startActivity(intent);
-            finish();  // Close cart after going to payment
+            if (cartItems.isEmpty()) {
+                Toast.makeText(this, "Your cart is empty. Please add items before paying.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Intent it = new Intent(AddtocartActivity.this, PaymentActivity.class);
+            it.putParcelableArrayListExtra("cartItems", new ArrayList<Parcelable>(cartItems));
+            startActivity(it);
         });
     }
 
@@ -107,4 +113,5 @@ public class AddtocartActivity extends AppCompatActivity {
         qtyTV.setText("Quantity: " + totalQty);
         totalTV.setText("₹" + totalPrice);
     }
+
 }

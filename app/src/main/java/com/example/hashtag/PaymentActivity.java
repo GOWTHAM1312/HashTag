@@ -14,14 +14,27 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class PaymentActivity extends AppCompatActivity {
-
     LinearLayout dchead, dcchild, nethead, netchild, paypalhead, paypalchild, upihead, upichild;
     ImageView dcarrow, netarrow, paypalarrow, upiarrow;
     Button proceedCardBtn, proceedPaypalBtn, proceedNetBtn, verifyUpiBtn;
+
+    private ArrayList<FoodCartModal> cartItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +42,6 @@ public class PaymentActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_payment);
 
-        // Setup edge-to-edge padding for system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -40,39 +52,36 @@ public class PaymentActivity extends AppCompatActivity {
         dchead = findViewById(R.id.cardpaymenthead);
         dcchild = findViewById(R.id.cardpaymentchild);
         dcarrow = findViewById(R.id.cardarrow);
-
         nethead = findViewById(R.id.netbankinghead);
         netchild = findViewById(R.id.netbankingchild);
         netarrow = findViewById(R.id.netarrow);
-
         paypalhead = findViewById(R.id.paypalhead);
         paypalchild = findViewById(R.id.paypalchild);
         paypalarrow = findViewById(R.id.paypalarrow);
-
         upihead = findViewById(R.id.upihead);
         upichild = findViewById(R.id.upichild);
         upiarrow = findViewById(R.id.upiarrow);
 
-        // Buttons — make sure these IDs exist in your layout XML
         proceedCardBtn = findViewById(R.id.proceedCardBtn);
         proceedPaypalBtn = findViewById(R.id.proceedPaypalBtn);
-        proceedNetBtn = findViewById(R.id.proceedNetBtn); // Optional, only if netbanking proceed button exists
+        proceedNetBtn = findViewById(R.id.proceedNetBtn);
         verifyUpiBtn = findViewById(R.id.verifyUpiBtn);
 
-        // Toggle section visibility on header click
+        // Get cart data
+        cartItems = getIntent().getParcelableArrayListExtra("cartItems");
+        if (cartItems == null) cartItems = new ArrayList<>();
+
+        // Set toggles
         dchead.setOnClickListener(v -> toggleVisibility(dcchild, dcarrow));
         nethead.setOnClickListener(v -> toggleVisibility(netchild, netarrow));
         paypalhead.setOnClickListener(v -> toggleVisibility(paypalchild, paypalarrow));
         upihead.setOnClickListener(v -> toggleVisibility(upichild, upiarrow));
 
-        // Button click listeners to proceed with payment
-        proceedCardBtn.setOnClickListener(v -> proceedPayment());
-        proceedPaypalBtn.setOnClickListener(v -> proceedPayment());
-        proceedNetBtn.setOnClickListener(v -> proceedPayment());
-        verifyUpiBtn.setOnClickListener(v -> {
-            // Optional: add UPI verification logic here
-            proceedPayment();
-        });
+        // Payment action buttons
+        proceedCardBtn.setOnClickListener(v -> placeOrder("Card"));
+        proceedPaypalBtn.setOnClickListener(v -> placeOrder("PayPal"));
+        proceedNetBtn.setOnClickListener(v -> placeOrder("Net Banking"));
+        verifyUpiBtn.setOnClickListener(v -> placeOrder("UPI"));
     }
 
     private void toggleVisibility(LinearLayout childLayout, ImageView arrow) {
@@ -85,17 +94,64 @@ public class PaymentActivity extends AppCompatActivity {
         }
     }
 
-    private void proceedPayment() {
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("cart");
-        dbRef.removeValue()
-                .addOnSuccessListener(unused -> {
-                    Toast.makeText(PaymentActivity.this, "Payment successful! Order placed.", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(PaymentActivity.this, ThankingActivity.class);
-                    startActivity(intent);
-                    finish();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(PaymentActivity.this, "Payment succeeded but failed to clear cart.", Toast.LENGTH_LONG).show();
-                });
+    private void placeOrder(String paymentMethod) {
+        if (cartItems.isEmpty()) {
+            Toast.makeText(this, "Cart is empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String userName = snapshot.child("name").getValue(String.class);
+                String address = snapshot.child("address").getValue(String.class);
+
+                if (userName == null || userName.trim().isEmpty()) userName = "Unknown";
+                if (address == null || address.trim().isEmpty()) address = "Not provided";
+
+                DatabaseReference orderRef = FirebaseDatabase.getInstance()
+                        .getReference("Orders")
+                        .child(userName)
+                        .push();
+
+                HashMap<String, Object> orderMap = new HashMap<>();
+                ArrayList<HashMap<String, Object>> itemList = new ArrayList<>();
+                int total = 0;
+
+                for (FoodCartModal item : cartItems) {
+                    HashMap<String, Object> i = new HashMap<>();
+                    i.put("name", item.getName());
+                    i.put("quantity", item.getNumitems());
+                    i.put("totalPrice", item.getNumitems() * item.getPrice());
+                    total += item.getNumitems() * item.getPrice();
+                    itemList.add(i);
+                }
+
+                orderMap.put("items", itemList);
+                orderMap.put("totalAmount", total);
+                orderMap.put("paymentMethod", paymentMethod);
+                orderMap.put("timestamp", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()));
+                orderMap.put("status", "Pending");
+                orderMap.put("address", address);
+
+                orderRef.setValue(orderMap)
+                        .addOnSuccessListener(unused -> {
+                            Toast.makeText(PaymentActivity.this, "Order placed!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(PaymentActivity.this, ThankingActivity.class));
+                            finish();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(PaymentActivity.this, "Order failed to save.", Toast.LENGTH_SHORT).show();
+                        });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(PaymentActivity.this, "Error fetching profile data.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

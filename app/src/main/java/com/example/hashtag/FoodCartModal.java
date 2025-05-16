@@ -1,6 +1,11 @@
 package com.example.hashtag;
 
-public class FoodCartModal {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class FoodCartModal implements Parcelable{
     private String name;
     private int price;
     private int numitems;
@@ -13,13 +18,56 @@ public class FoodCartModal {
         this.imageResId = imageResId;
     }
 
-    public String getName() { return name; }
-    public int getPrice() { return price; }
-    public int getNumitems() { return numitems; }
-    public int getImageResId() { return imageResId; }
+    protected FoodCartModal(Parcel in) {
+        name = in.readString();
+        price = in.readInt();
+        numitems = in.readInt();
+        imageResId = in.readInt();
+    }
 
-    public void setName(String name) { this.name = name; }
-    public void setPrice(int price) { this.price = price; }
-    public void setNumitems(int numitems) { this.numitems = numitems; }
-    public void setImageResId(int imageResId) { this.imageResId = imageResId; }
+    public static final Creator<FoodCartModal> CREATOR = new Creator<FoodCartModal>() {
+        @Override
+        public FoodCartModal createFromParcel(Parcel in) {
+            return new FoodCartModal(in);
+        }
+
+        @Override
+        public FoodCartModal[] newArray(int size) {
+            return new FoodCartModal[size];
+        }
+    };
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getNumitems() {
+        return numitems;
+    }
+
+    public int getImageResId() {
+        return imageResId;
+    }
+
+    public void setNumitems(int numitems) {
+        this.numitems = numitems;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeInt(price);
+        dest.writeInt(numitems);
+        dest.writeInt(imageResId);
+    }
+
 }

@@ -1,7 +1,9 @@
 // ThankingActivity.java
 package com.example.hashtag;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -35,6 +37,14 @@ public class ThankingActivity extends AppCompatActivity {
             Toast.makeText(this, "Cart cleared after order.", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Failed to clear cart.", Toast.LENGTH_SHORT).show();
+        });
+
+        // Back to Home Button
+        Button backToHomeButton = findViewById(R.id.backToHomeButton);
+        backToHomeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ThankingActivity.this, StaticFoodPageActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

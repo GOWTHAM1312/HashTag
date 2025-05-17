@@ -21,6 +21,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import android.text.InputType;
+import android.widget.ImageView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,8 +31,14 @@ public class MainActivity extends AppCompatActivity {
     Button but;
     TextView tx;
     CheckBox termsCond;
+    ImageView eyeToggle;
+    boolean isPasswordVisible = false;
+
 
     FirebaseAuth mAuth;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         but = findViewById(R.id.signinbutton);
         tx = findViewById(R.id.signuptext);
         termsCond = findViewById(R.id.termsCB);
+        eyeToggle = findViewById(R.id.eyeToggle);
+
 
         // Login button click listener
         but.setOnClickListener(v -> {
@@ -66,6 +77,19 @@ public class MainActivity extends AppCompatActivity {
                 loginUserAccount();
             }
         });
+
+        eyeToggle.setOnClickListener(v -> {
+            if (isPasswordVisible) {
+                password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                eyeToggle.setImageResource(R.drawable.ic_eye_closed); // your closed eye icon
+            } else {
+                password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                eyeToggle.setImageResource(R.drawable.ic_eye_open); // your open eye icon
+            }
+            password.setSelection(password.getText().length()); // move cursor to end
+            isPasswordVisible = !isPasswordVisible;
+        });
+
 
         // Sign up text click listener - navigate to SignupActivity
         tx.setOnClickListener(v -> {
